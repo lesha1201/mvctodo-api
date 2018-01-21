@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URL, { useMongoClient: true });
 
 app.use('/api/todos', todos);
 
-const server_port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080;
-const server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+      ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-app.listen(server_port, () => console.log( "Listening on port " + server_port ));
+app.listen(port, ip, () => console.log('Server running on http://%s:%s', ip, port));
