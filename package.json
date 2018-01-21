@@ -4,9 +4,8 @@
   "description": "Server for MVC TodoList",
   "main": "index.js",
   "scripts": {
-	 "dev": "nodemon src/index.js",
-	 "preinstall": "npm install pm2 -g",
-    "start": "pm2 start src/index.js -i max --attach"
+    "dev": "nodemon src/index.js",
+	 "start": "node ./node_modules/.bin/pm2 start app.js -i max --attach"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +15,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
-    "mongoose": "^4.13.9"
+    "mongoose": "^4.13.9",
+    "pm2": "^2.9.1"
   }
 }
