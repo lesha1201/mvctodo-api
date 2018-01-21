@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const compression = require('compression');
 const helmet = require('helmet');
 
@@ -12,6 +13,7 @@ const app = express();
 app.use(helmet());
 app.use(compression());
 app.use(express.json({ inflate: true }));
+app.use(cors());
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.MONGODB_URL, { useMongoClient: true });
